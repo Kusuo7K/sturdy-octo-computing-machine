@@ -33,25 +33,28 @@ window.addEventListener("resize", ()=>{
 //-------------------------------------------------------------------
 window.dispatchEvent(new Event("resize"));
 
-Assets.add("myImagen","imagen.jpg");
-Assets.add("myFace","./cara.png");
+Assets.add("Personaje","./Personaje.png");
+Assets.add("gorro","./gorro.png.png");
 
-Assets.load([ "myFace","myImagen"]).then(()=>{
+Assets.load([ "gorro","Personaje"]).then(()=>{
 
-	const imagen: Sprite = Sprite.from("myImagen");
+	const personaje: Sprite = Sprite.from("Personaje");
+	const gorro: Sprite = Sprite.from("gorro");
 	
 	
-	console.log("Hola Mundo", imagen.width, imagen.height);
 	
-	const face: Sprite = Sprite.from("myFace");
+	gorro.scale.set(10);
+	gorro.position.set(195,30);
 
-	face.scale.set(0.5);
-	face.position.set(150,130);
+	personaje.scale.set(25);
+	personaje.position.set(150,130);
+	
 
 	const imagWithFace: Container = new Container();
 
-	imagWithFace.addChild(imagen);
-	imagWithFace.addChild(face);
+	imagWithFace.addChild(personaje);
+	imagWithFace.addChild(gorro);
+	
 
 	app.stage.addChild(imagWithFace);
 
